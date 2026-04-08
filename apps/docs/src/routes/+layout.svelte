@@ -1,8 +1,7 @@
 <script lang="ts">
 	import '../app.css';
-	import { createTheme } from '@emdzej/ui-kit';
+	import { createTheme, ThemeToggle } from '@emdzej/ui-kit';
 	import { page } from '$app/state';
-	import { Sun, Moon } from '@lucide/svelte';
 
 	let { children } = $props();
 	const { theme, toggleTheme } = createTheme();
@@ -11,6 +10,8 @@
 		{ label: 'Overview', href: '/' },
 		{ heading: 'Foundation' },
 		{ label: 'Theme & Tokens', href: '/theme' },
+		{ heading: 'App Shell' },
+		{ label: 'AppHeader / Toggle / Settings', href: '/app-shell' },
 		{ heading: 'Components' },
 		{ label: 'SearchInput', href: '/search-input' },
 		{ label: 'Breadcrumb', href: '/breadcrumb' },
@@ -57,17 +58,7 @@
 		</nav>
 
 		<div class="p-4 border-t border-border mt-auto">
-			<button
-				onclick={toggleTheme}
-				class="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted hover:bg-surface-hover hover:text-on-surface transition-colors"
-			>
-				{#if $theme === 'dark'}
-					<Moon class="size-4" />
-				{:else}
-					<Sun class="size-4" />
-				{/if}
-				{$theme === 'dark' ? 'Dark' : 'Light'}
-			</button>
+			<ThemeToggle {theme} onToggle={toggleTheme} showLabel class="w-full" />
 		</div>
 	</aside>
 

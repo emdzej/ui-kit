@@ -1,3 +1,9 @@
+// App shell
+export { default as AppHeader } from './AppHeader.svelte';
+export { default as ThemeToggle } from './ThemeToggle.svelte';
+export { default as SettingsButton } from './SettingsButton.svelte';
+
+// Components
 export { default as SearchInput } from './SearchInput.svelte';
 export { default as Breadcrumb } from './Breadcrumb.svelte';
 export type { BreadcrumbItem } from './Breadcrumb.svelte';

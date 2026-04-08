@@ -83,26 +83,24 @@
 	});
 </script>
 
-<form role="search" onsubmit={handleSubmit} class="relative {className}">
-	<div class="absolute left-3 inset-y-0 flex items-center pointer-events-none" aria-hidden="true">
-		<Search class="size-4 text-muted" />
-	</div>
-	<input
-		bind:this={inputEl}
-		type="search"
-		{placeholder}
-		value={value}
-		oninput={handleInput}
-		onkeydown={handleKeydown}
-		class="w-full rounded-lg border border-border bg-surface-alt pl-10 {shortcut ? 'pr-16' : 'pr-4'} py-2 text-sm text-on-surface placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
-	/>
-	{#if shortcut && !value}
-		<div class="absolute right-3 inset-y-0 hidden sm:flex items-center pointer-events-none">
+<form role="search" onsubmit={handleSubmit} class="{className}">
+	<div class="flex items-center rounded-lg border border-border bg-surface-alt px-3 py-2 gap-2 focus-within:ring-2 focus-within:ring-ring transition-shadow">
+		<Search class="size-4 shrink-0 text-muted" aria-hidden="true" />
+		<input
+			bind:this={inputEl}
+			type="search"
+			{placeholder}
+			value={value}
+			oninput={handleInput}
+			onkeydown={handleKeydown}
+			class="w-full bg-transparent text-sm text-on-surface outline-none placeholder:text-muted"
+		/>
+		{#if shortcut && !value}
 			<kbd
-				class="inline-flex items-center gap-0.5 rounded border border-border bg-surface-raised px-1.5 py-0.5 text-xs text-muted"
+				class="hidden sm:inline-flex items-center gap-0.5 shrink-0 rounded border border-border bg-surface-raised px-1.5 py-0.5 text-xs text-muted"
 			>
 				<span class="text-xs">{BROWSER && navigator.platform?.includes('Mac') ? '⌘' : 'Ctrl+'}</span>K
 			</kbd>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </form>

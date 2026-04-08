@@ -59,19 +59,17 @@
 		onclose
 	}: Props = $props();
 
-	function getOpen() {
-		return open;
-	}
+	let prevOpen = $state(open);
 
-	function setOpen(value: boolean) {
-		open = value;
-		if (!value) {
+	$effect(() => {
+		if (prevOpen && !open) {
 			onclose?.();
 		}
-	}
+		prevOpen = open;
+	});
 </script>
 
-<Dialog.Root bind:open={getOpen, setOpen}>
+<Dialog.Root bind:open>
 	<Dialog.Portal>
 		<Dialog.Overlay
 			class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
@@ -79,8 +77,16 @@
 		<Dialog.Content
 			class="fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] {maxWidth} rounded-xl border border-border bg-surface-alt p-6 shadow-ui-lg focus:outline-none {className}"
 		>
+			{#if closable}
+				<Dialog.Close
+					class="absolute top-4 right-4 rounded-full p-1.5 text-muted hover:text-on-surface hover:bg-surface-hover transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
+					aria-label="Close"
+				>
+					<X class="size-5" aria-hidden="true" />
+				</Dialog.Close>
+			{/if}
 			{#if title}
-				<Dialog.Title class="text-lg font-semibold text-on-surface">
+				<Dialog.Title class="text-lg font-semibold text-on-surface {closable ? 'pr-8' : ''}">
 					{title}
 				</Dialog.Title>
 			{/if}
@@ -94,15 +100,6 @@
 				<div class="{title || description ? 'mt-4' : ''}">
 					{@render children()}
 				</div>
-			{/if}
-
-			{#if closable}
-				<Dialog.Close
-					class="absolute top-4 right-4 rounded-full p-1.5 text-muted hover:text-on-surface hover:bg-surface-hover transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
-					aria-label="Close"
-				>
-					<X class="size-5" aria-hidden="true" />
-				</Dialog.Close>
 			{/if}
 		</Dialog.Content>
 	</Dialog.Portal>

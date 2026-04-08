@@ -41,7 +41,10 @@ packages/ui/src/lib/
 │   ├── CascadingSelect.svelte  # Bits UI Select wrapper
 │   ├── Dropdown.svelte       # Bits UI DropdownMenu wrapper
 │   ├── TreeView.svelte       # Recursive tree (self-import pattern)
-│   └── tree-types.ts         # TreeNode<D>, TreeNodeContext<D>
+│   ├── tree-types.ts         # TreeNode<D>, TreeNodeContext<D>
+│   ├── AppHeader.svelte      # Sticky header with brand/nav/actions snippets
+│   ├── ThemeToggle.svelte    # Sun/moon toggle (composable, takes theme prop)
+│   └── SettingsButton.svelte # Gear icon with bindable open state
 ├── actions/
 │   ├── index.ts
 │   ├── clickOutside.ts
@@ -91,6 +94,7 @@ Scopes: ui, docs, theme, actions, ci
 
 - **Simple presentational** components (Card, Breadcrumb, SearchInput) are hand-rolled. No Bits UI dependency for these.
 - **Complex interactive** components (Modal, Dropdown, CascadingSelect) wrap Bits UI primitives. These get accessibility, keyboard nav, and focus management from Bits UI.
+- **App Shell** components (AppHeader, ThemeToggle, SettingsButton) are composable building blocks. They don't create their own stores — consumers pass theme state and callbacks as props.
 - **TreeView** is hand-rolled with a recursive self-import pattern (`import Self from './TreeView.svelte'`) because `<svelte:self>` is deprecated in Svelte 5.
 
 ### Svelte 5 Patterns
@@ -129,6 +133,11 @@ Use `BROWSER` from `esm-env`, NOT `$app/environment`. The library must work outs
 | `<svelte:self>` in Svelte 5 | Deprecated. Use `import Self from './Component.svelte'` self-import pattern. |
 | `@import '@tailwindcss/typography'` with pnpm | Use `@plugin '@tailwindcss/typography'` instead. |
 | Tailwind version mismatch in consuming apps | Library targets Tailwind v4. wdsx and etkx still use v3.4; tisx uses v4. |
+| Bits UI Dialog.Root `bind:open` | Use simple `bind:open={stateVar}`. The function binding pattern `bind:open={get, set}` does NOT work — modals won't open. Handle `onclose` via a `$effect` tracking the open→closed transition. |
+| Turbo cache staleness with docs app | The docs app resolves `@emdzej/ui-kit` via `workspace:*` but reads from `dist/`. After source changes, you MUST run `pnpm --filter @emdzej/ui-kit package` to rebuild dist. Otherwise the dev server serves stale output. |
+| Tailwind v4 absolute positioning in inputs | `absolute inset-y-0` for positioning icons inside inputs doesn't work reliably in Tailwind v4. Use a **flexbox layout** instead: `flex items-center` wrapper with icon, input, and badge as siblings. |
+| `relative` class on Bits UI Dialog.Content | Do NOT add `relative` to Dialog.Content's class — it conflicts with `fixed` in Tailwind v4 and pushes the dialog off-screen. Place close buttons as direct children of Dialog.Content with `absolute top-4 right-4`. |
+| Icon library: `@lucide/svelte` | Use `@lucide/svelte` (Svelte 5 package), NOT `lucide-svelte` (Svelte 4 only). Tree-shakeable, consistent 24x24 grid. |
 
 ---
 

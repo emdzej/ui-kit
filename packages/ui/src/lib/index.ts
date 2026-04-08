@@ -1,3 +1,6 @@
+// App shell
+export { AppHeader, ThemeToggle, SettingsButton } from './components/index.js';
+
 // Components
 export {
 	SearchInput,

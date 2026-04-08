@@ -8,6 +8,18 @@
 		"url": "git+https://github.com/emdzej/ui-kit.git",
 		"directory": "packages/ui"
 	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
+	"keywords": [
+		"svelte",
+		"svelte5",
+		"ui",
+		"components",
+		"theme",
+		"tailwind"
+	],
 	"type": "module",
 	"scripts": {
 		"build": "svelte-kit sync && svelte-package -o dist",

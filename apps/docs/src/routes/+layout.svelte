@@ -17,10 +17,13 @@
 		{ label: 'Breadcrumb', href: '/breadcrumb' },
 		{ label: 'Card', href: '/card' },
 		{ label: 'Modal', href: '/modal' },
+		{ label: 'Drawer', href: '/drawer' },
 		{ label: 'CascadingSelect', href: '/cascading-select' },
 		{ label: 'Dropdown', href: '/dropdown' },
 		{ label: 'TreeView', href: '/tree-view' },
 		{ label: 'ImageViewer', href: '/image-viewer' },
+		{ heading: 'Stores' },
+		{ label: 'createPersistedStore', href: '/persisted-store' },
 		{ heading: 'Actions' },
 		{ label: 'clickOutside', href: '/actions/click-outside' },
 		{ label: 'imageMagnify', href: '/actions/image-magnify' }

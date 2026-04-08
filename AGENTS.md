@@ -11,7 +11,7 @@ Shared Svelte 5 UI toolkit extracted from three SvelteKit apps (wdsx, tisx, etkx
 - **Monorepo**: pnpm + Turborepo
 - **Library**: Svelte 5 + `@sveltejs/package` (outputs to `dist/`)
 - **Theme**: CSS custom properties + Tailwind v4 `@theme` block
-- **Complex components**: Bits UI wrappers (Modal, CascadingSelect, Dropdown)
+- **Complex components**: Bits UI wrappers (Modal, Drawer, CascadingSelect, Dropdown)
 - **Simple components**: Hand-rolled (SearchInput, Breadcrumb, Card, ImageViewer, TreeView)
 - **Build**: Vite 6 + `svelte-package`
 
@@ -37,7 +37,8 @@ packages/ui/src/lib/
 │   ├── Breadcrumb.svelte
 │   ├── Card.svelte
 │   ├── ImageViewer.svelte
-│   ├── Modal.svelte          # Bits UI Dialog wrapper
+│   ├── Modal.svelte          # Bits UI Dialog wrapper (centered)
+│   ├── Drawer.svelte         # Bits UI Dialog wrapper (slide-in panel)
 │   ├── CascadingSelect.svelte  # Bits UI Select wrapper
 │   ├── Dropdown.svelte       # Bits UI DropdownMenu wrapper
 │   ├── TreeView.svelte       # Recursive tree (self-import pattern)
@@ -50,7 +51,8 @@ packages/ui/src/lib/
 │   ├── clickOutside.ts
 │   └── imageMagnify.ts
 └── stores/
-    └── index.ts        # Re-exports from theme
+    ├── index.ts        # Re-exports from theme + persisted
+    └── persisted.ts    # createPersistedStore() factory
 ```
 
 ---
@@ -93,7 +95,7 @@ Scopes: ui, docs, theme, actions, ci
 ### Component Design
 
 - **Simple presentational** components (Card, Breadcrumb, SearchInput) are hand-rolled. No Bits UI dependency for these.
-- **Complex interactive** components (Modal, Dropdown, CascadingSelect) wrap Bits UI primitives. These get accessibility, keyboard nav, and focus management from Bits UI.
+- **Complex interactive** components (Modal, Drawer, Dropdown, CascadingSelect) wrap Bits UI primitives. These get accessibility, keyboard nav, and focus management from Bits UI.
 - **App Shell** components (AppHeader, ThemeToggle, SettingsButton) are composable building blocks. They don't create their own stores — consumers pass theme state and callbacks as props.
 - **TreeView** is hand-rolled with a recursive self-import pattern (`import Self from './TreeView.svelte'`) because `<svelte:self>` is deprecated in Svelte 5.
 
@@ -115,6 +117,11 @@ Colors use oklch values. The `@theme` block in `tokens.css` registers them as Ta
 ### Environment Detection
 
 Use `BROWSER` from `esm-env`, NOT `$app/environment`. The library must work outside SvelteKit.
+
+### Store Patterns
+
+- `createTheme()` — Light/dark mode store with localStorage persistence and `prefers-color-scheme` fallback.
+- `createPersistedStore<T>()` — Generic localStorage-backed store factory. SSR-safe, with JSON serialization, reset, and export/import helpers. Use this as the base for app-specific stores (favourites, settings, etc.).
 
 ### Tailwind v4
 
@@ -138,6 +145,7 @@ Use `BROWSER` from `esm-env`, NOT `$app/environment`. The library must work outs
 | Tailwind v4 absolute positioning in inputs | `absolute inset-y-0` for positioning icons inside inputs doesn't work reliably in Tailwind v4. Use a **flexbox layout** instead: `flex items-center` wrapper with icon, input, and badge as siblings. |
 | `relative` class on Bits UI Dialog.Content | Do NOT add `relative` to Dialog.Content's class — it conflicts with `fixed` in Tailwind v4 and pushes the dialog off-screen. Place close buttons as direct children of Dialog.Content with `absolute top-4 right-4`. |
 | Icon library: `@lucide/svelte` | Use `@lucide/svelte` (Svelte 5 package), NOT `lucide-svelte` (Svelte 4 only). Tree-shakeable, consistent 24x24 grid. |
+| `{` in Svelte template attributes | Svelte parser treats `{` as expression start. Avoid JSON literals in `placeholder` or other attributes. Use plain text or escaped content instead. |
 
 ---
 

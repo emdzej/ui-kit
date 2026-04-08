@@ -8,6 +8,7 @@ export {
 	Card,
 	ImageViewer,
 	Modal,
+	Drawer,
 	CascadingSelect,
 	Dropdown,
 	TreeView
@@ -17,6 +18,10 @@ export type { BreadcrumbItem, SelectOption, DropdownItem, DropdownParts, TreeNod
 // Theme
 export { createTheme } from './theme/index.js';
 export type { Theme, ThemeOptions } from './theme/index.js';
+
+// Stores
+export { createPersistedStore } from './stores/persisted.js';
+export type { PersistedStore, PersistedStoreOptions } from './stores/persisted.js';
 
 // Actions
 export { clickOutside } from './actions/index.js';

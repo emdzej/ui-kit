@@ -10,6 +10,7 @@ export type { BreadcrumbItem } from './Breadcrumb.svelte';
 export { default as Card } from './Card.svelte';
 export { default as ImageViewer } from './ImageViewer.svelte';
 export { default as Modal } from './Modal.svelte';
+export { default as Drawer } from './Drawer.svelte';
 export { default as CascadingSelect } from './CascadingSelect.svelte';
 export type { SelectOption } from './CascadingSelect.svelte';
 export { default as Dropdown } from './Dropdown.svelte';

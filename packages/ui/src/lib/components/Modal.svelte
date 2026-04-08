@@ -27,6 +27,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { Dialog } from 'bits-ui';
+	import { X } from '@lucide/svelte';
 
 	interface Props {
 		/** Whether the modal is open (bindable) */
@@ -96,17 +97,7 @@
 					class="absolute top-4 right-4 rounded-full p-1.5 text-muted hover:text-on-surface hover:bg-surface-raised transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
 					aria-label="Close"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="h-5 w-5"
-						aria-hidden="true"
-					>
-						<path
-							d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
-						/>
-					</svg>
+					<X class="size-5" aria-hidden="true" />
 				</Dialog.Close>
 			{/if}
 		</Dialog.Content>

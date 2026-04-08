@@ -61,6 +61,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@lucide/svelte": "^1.7.0",
 		"bits-ui": "^1.0.0",
 		"esm-env": "^1.2.0"
 	}

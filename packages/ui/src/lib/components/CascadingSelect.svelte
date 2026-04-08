@@ -39,6 +39,7 @@
 
 <script lang="ts">
 	import { Select } from 'bits-ui';
+	import { ChevronDown, ChevronUp, Check } from '@lucide/svelte';
 
 	interface Props {
 		/** Label text above the select */
@@ -106,19 +107,7 @@
 				{!selectedLabel ? 'text-muted' : ''}"
 		>
 			<span class="truncate">{displayText}</span>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 20 20"
-				fill="currentColor"
-				class="ml-2 h-4 w-4 shrink-0 text-muted"
-				aria-hidden="true"
-			>
-				<path
-					fill-rule="evenodd"
-					d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z"
-					clip-rule="evenodd"
-				/>
-			</svg>
+			<ChevronDown class="ml-2 size-4 shrink-0 text-muted" aria-hidden="true" />
 		</Select.Trigger>
 
 		<Select.Portal>
@@ -129,19 +118,7 @@
 				<Select.ScrollUpButton
 					class="flex h-6 items-center justify-center bg-surface-alt text-muted"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="h-4 w-4"
-						aria-hidden="true"
-					>
-						<path
-							fill-rule="evenodd"
-							d="M14.78 11.78a.75.75 0 01-1.06 0L10 8.06l-3.72 3.72a.75.75 0 01-1.06-1.06l4.25-4.25a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06z"
-							clip-rule="evenodd"
-						/>
-					</svg>
+					<ChevronUp class="size-4" aria-hidden="true" />
 				</Select.ScrollUpButton>
 
 				<Select.Viewport class="p-1">
@@ -157,19 +134,7 @@
 							{#snippet children({ selected })}
 								<span class="flex-1 truncate">{opt.label}</span>
 								{#if selected}
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 20 20"
-										fill="currentColor"
-										class="ml-2 h-4 w-4 shrink-0 text-primary"
-										aria-hidden="true"
-									>
-										<path
-											fill-rule="evenodd"
-											d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-											clip-rule="evenodd"
-										/>
-									</svg>
+									<Check class="ml-2 size-4 shrink-0 text-primary" aria-hidden="true" />
 								{/if}
 							{/snippet}
 						</Select.Item>
@@ -179,19 +144,7 @@
 				<Select.ScrollDownButton
 					class="flex h-6 items-center justify-center bg-surface-alt text-muted"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="h-4 w-4"
-						aria-hidden="true"
-					>
-						<path
-							fill-rule="evenodd"
-							d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z"
-							clip-rule="evenodd"
-						/>
-					</svg>
+					<ChevronDown class="size-4" aria-hidden="true" />
 				</Select.ScrollDownButton>
 			</Select.Content>
 		</Select.Portal>

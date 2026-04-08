@@ -22,6 +22,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"@emdzej/ui-kit": "workspace:*"
+		"@emdzej/ui-kit": "workspace:*",
+		"@lucide/svelte": "^1.7.0"
 	}
 }

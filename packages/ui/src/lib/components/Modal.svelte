@@ -59,7 +59,11 @@
 		onclose
 	}: Props = $props();
 
-	function handleOpenChange(value: boolean) {
+	function getOpen() {
+		return open;
+	}
+
+	function setOpen(value: boolean) {
 		open = value;
 		if (!value) {
 			onclose?.();
@@ -67,7 +71,7 @@
 	}
 </script>
 
-<Dialog.Root {open} onOpenChange={handleOpenChange}>
+<Dialog.Root bind:open={getOpen, setOpen}>
 	<Dialog.Portal>
 		<Dialog.Overlay
 			class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
@@ -94,7 +98,7 @@
 
 			{#if closable}
 				<Dialog.Close
-					class="absolute top-4 right-4 rounded-full p-1.5 text-muted hover:text-on-surface hover:bg-surface-raised transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
+					class="absolute top-4 right-4 rounded-full p-1.5 text-muted hover:text-on-surface hover:bg-surface-hover transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
 					aria-label="Close"
 				>
 					<X class="size-5" aria-hidden="true" />

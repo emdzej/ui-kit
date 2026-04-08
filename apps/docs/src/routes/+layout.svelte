@@ -31,24 +31,24 @@
 <div class="flex min-h-screen bg-surface text-on-surface">
 	<!-- Sidebar -->
 	<aside class="w-60 shrink-0 border-r border-border bg-surface-alt overflow-y-auto">
-		<div class="p-4 border-b border-border">
+		<div class="p-5 border-b border-border">
 			<a href="/" class="text-lg font-bold text-on-surface">@emdzej/ui-kit</a>
 			<p class="text-xs text-muted mt-0.5">v0.1.0</p>
 		</div>
 
-		<nav class="p-3 space-y-1">
+		<nav class="p-3 space-y-0.5">
 			{#each nav as item}
 				{#if item.heading}
-					<div class="px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-wider text-muted">
+					<div class="px-3 pt-5 pb-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
 						{item.heading}
 					</div>
 				{:else}
 					<a
 						href={item.href}
-					class="block rounded-md px-3 py-1.5 text-sm transition-colors
-						{isActive(item.href ?? '')
-							? 'bg-primary/10 text-primary font-medium'
-							: 'text-on-surface hover:bg-surface-raised'}"
+						class="block rounded-lg px-3 py-2 text-sm transition-colors
+							{isActive(item.href ?? '')
+								? 'bg-primary text-on-primary font-medium shadow-ui-sm'
+								: 'text-muted hover:bg-surface-hover hover:text-on-surface'}"
 					>
 						{item.label}
 					</a>
@@ -59,7 +59,7 @@
 		<div class="p-4 border-t border-border mt-auto">
 			<button
 				onclick={toggleTheme}
-				class="flex w-full items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted hover:bg-surface-raised transition-colors"
+				class="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted hover:bg-surface-hover hover:text-on-surface transition-colors"
 			>
 				{#if $theme === 'dark'}
 					<Moon class="size-4" />
@@ -73,7 +73,7 @@
 
 	<!-- Main content -->
 	<main class="flex-1 overflow-y-auto">
-		<div class="max-w-3xl mx-auto p-8">
+		<div class="max-w-3xl mx-auto px-8 py-10">
 			{@render children()}
 		</div>
 	</main>

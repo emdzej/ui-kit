@@ -31,10 +31,10 @@
 		{#each [{ label: 'S', px: 120 }, { label: 'M', px: 180 }, { label: 'L', px: 260 }, { label: 'XL', px: 360 }] as size}
 			<button
 				onclick={() => (lensSize = size.px)}
-				class="px-3 py-1 rounded-md text-sm transition-colors
+				class="px-3 py-1 rounded-lg text-sm transition-colors
 					{lensSize === size.px
 						? 'bg-primary text-on-primary'
-						: 'border border-border bg-surface-alt hover:bg-surface-raised'}"
+						: 'border border-border bg-surface-alt hover:bg-surface-hover'}"
 			>
 				{size.label} ({size.px}px)
 			</button>

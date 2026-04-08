@@ -15,7 +15,7 @@
 	<div class="relative inline-block">
 		<button
 			onclick={() => (isOpen = !isOpen)}
-			class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors"
+			class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors"
 		>
 			{isOpen ? 'Panel open' : 'Open panel'}
 		</button>

@@ -100,8 +100,8 @@
 	>
 		<Select.Trigger
 			{id}
-			class="flex w-full items-center justify-between rounded-md border border-border bg-surface-alt px-3 py-2 text-sm text-on-surface shadow-ui-sm transition-colors
-				hover:bg-surface-raised
+			class="flex w-full items-center justify-between rounded-lg border border-border bg-surface-alt px-3 py-2 text-sm text-on-surface shadow-ui-sm transition-colors
+				hover:bg-surface-hover
 				focus:outline-none focus:ring-2 focus:ring-ring
 				disabled:cursor-not-allowed disabled:opacity-50
 				{!selectedLabel ? 'text-muted' : ''}"
@@ -112,7 +112,7 @@
 
 		<Select.Portal>
 			<Select.Content
-				class="z-50 max-h-60 overflow-hidden rounded-md border border-border bg-surface-alt shadow-ui-lg"
+				class="z-50 max-h-60 overflow-hidden rounded-lg border border-border bg-surface-alt shadow-ui-lg"
 				sideOffset={4}
 			>
 				<Select.ScrollUpButton
@@ -127,8 +127,8 @@
 							value={opt.value}
 							label={opt.label}
 							disabled={opt.disabled}
-							class="relative flex w-full cursor-pointer select-none items-center rounded-sm px-3 py-2 text-sm text-on-surface outline-none
-								data-[highlighted]:bg-surface-raised data-[highlighted]:text-on-surface
+							class="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-on-surface outline-none
+								data-[highlighted]:bg-surface-hover data-[highlighted]:text-on-surface
 								data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
 						>
 							{#snippet children({ selected })}

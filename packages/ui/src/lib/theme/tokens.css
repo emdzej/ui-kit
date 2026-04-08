@@ -13,6 +13,10 @@
  *   :root {
  *     --ui-color-primary: oklch(0.55 0.2 250);
  *   }
+ *
+ * Design language: clean, airy, neutral grays with blue accent.
+ * Inspired by modern dashboard UIs with generous whitespace,
+ * soft shadows, and rounded corners.
  */
 
 /* ─── Light theme (default) ─── */
@@ -20,67 +24,77 @@
 :root {
 	color-scheme: light dark;
 
-	/* Surfaces */
-	--ui-color-surface: oklch(0.985 0.002 247);       /* ~slate-50 */
-	--ui-color-surface-alt: oklch(1 0 0);              /* white */
-	--ui-color-surface-raised: oklch(0.968 0.003 247); /* ~slate-100 */
+	/* Surfaces — neutral gray tones (very low chroma, cool-neutral hue) */
+	--ui-color-surface: oklch(0.965 0.003 264);          /* light neutral gray — page bg */
+	--ui-color-surface-alt: oklch(1 0 0);                /* pure white — cards, panels, sidebar */
+	--ui-color-surface-raised: oklch(0.95 0.003 264);    /* gray-50 — badges, kbd */
+	--ui-color-surface-hover: oklch(0.94 0.004 264);     /* slightly darker gray — row hovers */
 
-	/* Text */
-	--ui-color-on-surface: oklch(0.208 0.042 265);     /* ~slate-900 */
-	--ui-color-muted: oklch(0.554 0.022 257);          /* ~slate-500 */
+	/* Text — neutral near-blacks and grays */
+	--ui-color-on-surface: oklch(0.23 0.01 264);         /* near-black */
+	--ui-color-muted: oklch(0.556 0.01 264);             /* medium gray */
 
-	/* Primary accent */
-	--ui-color-primary: oklch(0.685 0.169 237);        /* ~sky-500 */
-	--ui-color-primary-hover: oklch(0.609 0.175 241);  /* ~sky-600 */
-	--ui-color-on-primary: oklch(1 0 0);               /* white */
+	/* Primary accent — blue (sky palette) */
+	--ui-color-primary: oklch(0.588 0.158 241);          /* ~sky-600 — slightly deeper for contrast on white */
+	--ui-color-primary-hover: oklch(0.533 0.154 244);    /* ~sky-700 */
+	--ui-color-on-primary: oklch(1 0 0);                 /* white text on primary fills */
+	--ui-color-primary-subtle: oklch(0.93 0.04 237);     /* ~sky-100 — tinted backgrounds, active states */
 
-	/* Semantic */
-	--ui-color-error: oklch(0.645 0.246 16);           /* ~rose-500 */
-	--ui-color-error-hover: oklch(0.586 0.237 17);     /* ~rose-600 */
-	--ui-color-warning: oklch(0.769 0.188 70);         /* ~amber-500 */
-	--ui-color-success: oklch(0.596 0.145 163);        /* ~emerald-600 */
+	/* Semantic status colors */
+	--ui-color-error: oklch(0.645 0.246 16);             /* ~rose-500 — destructive, absent */
+	--ui-color-error-hover: oklch(0.586 0.237 17);       /* ~rose-600 */
+	--ui-color-warning: oklch(0.769 0.188 70);           /* ~amber-500 — caution, pending */
+	--ui-color-success: oklch(0.588 0.158 241);          /* mapped to primary blue — "on-time" / positive */
 
-	/* Borders & dividers */
-	--ui-color-border: oklch(0.869 0.013 252);         /* ~slate-200 */
-	--ui-color-ring: oklch(0.828 0.079 230);           /* ~sky-200 */
+	/* Borders & focus rings — neutral, subtle */
+	--ui-color-border: oklch(0.895 0.004 264);            /* light gray border */
+	--ui-color-ring: oklch(0.78 0.10 237);               /* sky-300 — focus ring */
 
-	/* Shadows */
-	--ui-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
-	--ui-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
-	--ui-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
+	/* Shadows — very soft, diffuse, low opacity for airy feel */
+	--ui-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.03);
+	--ui-shadow-md: 0 4px 12px -2px oklch(0 0 0 / 0.06), 0 2px 4px -2px oklch(0 0 0 / 0.04);
+	--ui-shadow-lg: 0 12px 24px -4px oklch(0 0 0 / 0.08), 0 4px 8px -4px oklch(0 0 0 / 0.04);
 
-	/* Radii */
-	--ui-radius-sm: 0.375rem;
-	--ui-radius-md: 0.5rem;
-	--ui-radius-lg: 0.75rem;
-	--ui-radius-xl: 1rem;
+	/* Radii — generous, rounded feel */
+	--ui-radius-sm: 0.5rem;       /* 8px */
+	--ui-radius-md: 0.75rem;      /* 12px */
+	--ui-radius-lg: 1rem;         /* 16px */
+	--ui-radius-xl: 1.25rem;      /* 20px */
 }
 
 /* ─── Dark theme ─── */
 
 .dark {
-	--ui-color-surface: oklch(0.129 0.042 264);        /* ~slate-950 */
-	--ui-color-surface-alt: oklch(0.208 0.042 265);    /* ~slate-900 */
-	--ui-color-surface-raised: oklch(0.279 0.041 260); /* ~slate-800 */
+	/* Surfaces — deep neutral grays */
+	--ui-color-surface: oklch(0.16 0.008 264);            /* near-black */
+	--ui-color-surface-alt: oklch(0.21 0.008 264);        /* dark gray — panels */
+	--ui-color-surface-raised: oklch(0.27 0.008 264);     /* mid-dark — badges, hovers */
+	--ui-color-surface-hover: oklch(0.30 0.008 264);      /* row hover */
 
-	--ui-color-on-surface: oklch(0.929 0.006 247);     /* ~slate-100 */
-	--ui-color-muted: oklch(0.704 0.015 252);          /* ~slate-400 */
+	/* Text */
+	--ui-color-on-surface: oklch(0.93 0.003 264);         /* off-white */
+	--ui-color-muted: oklch(0.65 0.008 264);              /* gray-400 */
 
-	--ui-color-primary: oklch(0.746 0.152 232);        /* ~sky-400 */
-	--ui-color-primary-hover: oklch(0.685 0.169 237);  /* ~sky-500 */
-	--ui-color-on-primary: oklch(1 0 0);               /* white */
+	/* Primary accent — lighter blue for dark bg contrast */
+	--ui-color-primary: oklch(0.72 0.15 232);            /* ~sky-400 */
+	--ui-color-primary-hover: oklch(0.66 0.16 237);      /* ~sky-500 */
+	--ui-color-on-primary: oklch(1 0 0);                 /* white */
+	--ui-color-primary-subtle: oklch(0.25 0.05 240);     /* dark blue tint */
 
-	--ui-color-error: oklch(0.712 0.194 13);           /* ~rose-400 */
-	--ui-color-error-hover: oklch(0.645 0.246 16);     /* ~rose-500 */
-	--ui-color-warning: oklch(0.769 0.188 70);         /* ~amber-500 */
-	--ui-color-success: oklch(0.765 0.177 163);        /* ~emerald-400 */
+	/* Semantic */
+	--ui-color-error: oklch(0.712 0.194 13);             /* ~rose-400 */
+	--ui-color-error-hover: oklch(0.645 0.246 16);       /* ~rose-500 */
+	--ui-color-warning: oklch(0.769 0.188 70);           /* ~amber-500 */
+	--ui-color-success: oklch(0.72 0.15 232);            /* maps to primary blue */
 
-	--ui-color-border: oklch(0.372 0.034 259);         /* ~slate-700 */
-	--ui-color-ring: oklch(0.609 0.175 241);           /* ~sky-600 */
+	/* Borders & rings */
+	--ui-color-border: oklch(0.35 0.008 264);             /* dark border */
+	--ui-color-ring: oklch(0.55 0.14 237);               /* ~sky-600 */
 
-	--ui-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.2);
-	--ui-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.3), 0 2px 4px -2px oklch(0 0 0 / 0.2);
-	--ui-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.3), 0 4px 6px -4px oklch(0 0 0 / 0.2);
+	/* Shadows — stronger in dark mode */
+	--ui-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.15);
+	--ui-shadow-md: 0 4px 12px -2px oklch(0 0 0 / 0.25), 0 2px 4px -2px oklch(0 0 0 / 0.15);
+	--ui-shadow-lg: 0 12px 24px -4px oklch(0 0 0 / 0.3), 0 4px 8px -4px oklch(0 0 0 / 0.15);
 }
 
 /* ─── Tailwind v4 theme registration ─── */
@@ -90,11 +104,13 @@
 	--color-surface: var(--ui-color-surface);
 	--color-surface-alt: var(--ui-color-surface-alt);
 	--color-surface-raised: var(--ui-color-surface-raised);
+	--color-surface-hover: var(--ui-color-surface-hover);
 	--color-on-surface: var(--ui-color-on-surface);
 	--color-muted: var(--ui-color-muted);
 	--color-primary: var(--ui-color-primary);
 	--color-primary-hover: var(--ui-color-primary-hover);
 	--color-on-primary: var(--ui-color-on-primary);
+	--color-primary-subtle: var(--ui-color-primary-subtle);
 	--color-error: var(--ui-color-error);
 	--color-error-hover: var(--ui-color-error-hover);
 	--color-warning: var(--ui-color-warning);

@@ -135,7 +135,7 @@
 					<button
 						type="button"
 						onclick={toggle}
-						class="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm text-on-surface hover:bg-surface-raised transition-colors"
+						class="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-on-surface hover:bg-surface-hover transition-colors"
 					>
 						<span class="w-4 text-center text-xs text-muted transition-transform {isExpanded ? 'rotate-90' : ''}">▶</span>
 						<span>{getIcon(node.data)}</span>
@@ -177,10 +177,10 @@
 					<button
 						type="button"
 						onclick={() => (selectedId = node.id)}
-						class="flex-1 flex items-center justify-between rounded-md px-2 py-1 text-sm transition-colors
+						class="flex-1 flex items-center justify-between rounded-lg px-2 py-1 text-sm transition-colors
 							{selectedId === node.id
-								? 'bg-primary/10 text-primary font-medium'
-								: 'text-on-surface hover:bg-surface-raised'}"
+								? 'bg-primary-subtle text-primary font-medium'
+								: 'text-on-surface hover:bg-surface-hover'}"
 					>
 						<span>{node.name}</span>
 						{#if node.data?.count}
@@ -206,7 +206,7 @@
 					<button
 						type="button"
 						onclick={toggle}
-						class="flex w-full items-center gap-2 px-2 py-1 text-sm text-on-surface hover:bg-surface-raised rounded transition-colors"
+						class="flex w-full items-center gap-2 px-2 py-1 text-sm text-on-surface hover:bg-surface-hover rounded-lg transition-colors"
 					>
 						<span class="text-xs text-muted {isExpanded ? 'rotate-90' : ''} transition-transform">▶</span>
 						<span class="font-medium">{node.name}/</span>

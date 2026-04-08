@@ -14,7 +14,7 @@
 	<h2 class="text-lg font-semibold mb-4">Basic</h2>
 	<button
 		onclick={() => (basicOpen = true)}
-		class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors"
+		class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors"
 	>
 		Open modal
 	</button>
@@ -23,7 +23,7 @@
 			<p class="text-sm text-on-surface">This modal has focus trapping, escape key dismissal, and clicks on the overlay to close.</p>
 			<button
 				onclick={() => (basicOpen = false)}
-				class="px-4 py-2 rounded-md bg-primary text-on-primary hover:opacity-90 transition-opacity"
+				class="px-4 py-2 rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity"
 			>
 				Done
 			</button>
@@ -35,7 +35,7 @@
 	<h2 class="text-lg font-semibold mb-4">Confirm dialog</h2>
 	<button
 		onclick={() => (confirmOpen = true)}
-		class="px-4 py-2 rounded-md bg-error text-white hover:opacity-90 transition-opacity"
+		class="px-4 py-2 rounded-lg bg-error text-white hover:opacity-90 transition-opacity"
 	>
 		Delete item
 	</button>
@@ -43,13 +43,13 @@
 		<div class="flex gap-2 justify-end">
 			<button
 				onclick={() => (confirmOpen = false)}
-				class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors"
+				class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors"
 			>
 				Cancel
 			</button>
 			<button
 				onclick={() => { alert('Deleted!'); confirmOpen = false; }}
-				class="px-4 py-2 rounded-md bg-error text-white hover:opacity-90 transition-opacity"
+				class="px-4 py-2 rounded-lg bg-error text-white hover:opacity-90 transition-opacity"
 			>
 				Delete
 			</button>
@@ -61,7 +61,7 @@
 	<h2 class="text-lg font-semibold mb-4">Wide modal</h2>
 	<button
 		onclick={() => (wideOpen = true)}
-		class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors"
+		class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors"
 	>
 		Open wide (max-w-2xl)
 	</button>
@@ -74,7 +74,7 @@
 	<h2 class="text-lg font-semibold mb-4">No close button</h2>
 	<button
 		onclick={() => (noCloseOpen = true)}
-		class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors"
+		class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors"
 	>
 		Open (closable=false)
 	</button>
@@ -83,7 +83,7 @@
 			<p class="text-sm text-on-surface">No close button. You must use the action button. Escape and overlay click still work.</p>
 			<button
 				onclick={() => (noCloseOpen = false)}
-				class="px-4 py-2 rounded-md bg-primary text-on-primary hover:opacity-90 transition-opacity"
+				class="px-4 py-2 rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity"
 			>
 				Accept
 			</button>

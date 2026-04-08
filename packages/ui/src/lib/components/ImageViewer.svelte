@@ -62,7 +62,7 @@
 		<button
 			type="button"
 			onclick={onclose}
-			class="absolute top-4 right-4 rounded-full bg-surface-alt/90 p-2 text-on-surface hover:bg-surface-raised transition-colors"
+			class="absolute top-4 right-4 rounded-full bg-surface-alt/90 p-2 text-on-surface hover:bg-surface-hover transition-colors"
 			aria-label="Close"
 		>
 			<X class="size-5" aria-hidden="true" />

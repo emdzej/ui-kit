@@ -12,13 +12,13 @@
 	<div class="flex gap-3">
 		<button
 			onclick={() => (lightboxSrc = 'https://picsum.photos/seed/viewer1/1200/800')}
-			class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors"
+			class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors"
 		>
 			Open lightbox
 		</button>
 		<button
 			onclick={() => (lightboxSrc = 'https://picsum.photos/seed/viewer2/800/1200')}
-			class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors"
+			class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors"
 		>
 			Portrait image
 		</button>

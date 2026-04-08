@@ -86,7 +86,7 @@
 	}: Props = $props();
 
 	const itemBaseClass =
-		'relative flex w-full cursor-pointer select-none items-center rounded-sm px-3 py-2 text-sm outline-none transition-colors data-[highlighted]:bg-surface-raised data-[disabled]:pointer-events-none data-[disabled]:opacity-50';
+		'relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm outline-none transition-colors data-[highlighted]:bg-surface-hover data-[disabled]:pointer-events-none data-[disabled]:opacity-50';
 </script>
 
 <DropdownMenu.Root bind:open>
@@ -98,7 +98,7 @@
 		<DropdownMenu.Content
 			{align}
 			{sideOffset}
-			class="z-50 min-w-[12rem] overflow-hidden rounded-md border border-border bg-surface-alt p-1 shadow-ui-lg {className}"
+			class="z-50 min-w-[12rem] overflow-hidden rounded-lg border border-border bg-surface-alt p-1 shadow-ui-lg {className}"
 		>
 			{#if children}
 				{@render children()}

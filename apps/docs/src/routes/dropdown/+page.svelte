@@ -25,7 +25,7 @@
 	<h2 class="text-lg font-semibold mb-4">Simple items</h2>
 	<Dropdown items={simpleItems}>
 		{#snippet trigger()}
-			<button class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors">
+			<button class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors">
 				Actions
 			</button>
 		{/snippet}
@@ -39,7 +39,7 @@
 	<h2 class="text-lg font-semibold mb-4">With disabled items</h2>
 	<Dropdown items={withDisabled}>
 		{#snippet trigger()}
-			<button class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors">
+			<button class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors">
 				Edit menu
 			</button>
 		{/snippet}
@@ -50,7 +50,7 @@
 	<h2 class="text-lg font-semibold mb-4">Align start</h2>
 	<Dropdown items={simpleItems} align="start">
 		{#snippet trigger()}
-			<button class="px-4 py-2 rounded-md border border-border bg-surface-alt hover:bg-surface-raised transition-colors">
+			<button class="px-4 py-2 rounded-lg border border-border bg-surface-alt hover:bg-surface-hover transition-colors">
 				Left-aligned
 			</button>
 		{/snippet}

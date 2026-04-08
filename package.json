@@ -1,0 +1,14 @@
+{
+	"name": "@emdzej/ui-kit-monorepo",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"check": "turbo run check",
+		"package": "turbo run package"
+	},
+	"devDependencies": {
+		"turbo": "^2.5.0"
+	},
+	"packageManager": "pnpm@10.28.2"
+}

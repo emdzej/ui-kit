@@ -1,0 +1,113 @@
+/*
+ * @emdzej/ui-kit — Design Tokens
+ *
+ * Semantic color tokens using CSS custom properties.
+ * These are the defaults — apps can override any token in their own CSS.
+ *
+ * Usage in Tailwind v4: tokens are registered as @theme values below,
+ * enabling classes like `bg-surface`, `text-on-surface`, `border-border`, etc.
+ *
+ * To override in a consuming app:
+ *
+ *   @import '@emdzej/ui-kit/theme/tokens.css';
+ *   :root {
+ *     --ui-color-primary: oklch(0.55 0.2 250);
+ *   }
+ */
+
+/* ─── Light theme (default) ─── */
+
+:root {
+	color-scheme: light dark;
+
+	/* Surfaces */
+	--ui-color-surface: oklch(0.985 0.002 247);       /* ~slate-50 */
+	--ui-color-surface-alt: oklch(1 0 0);              /* white */
+	--ui-color-surface-raised: oklch(0.968 0.003 247); /* ~slate-100 */
+
+	/* Text */
+	--ui-color-on-surface: oklch(0.208 0.042 265);     /* ~slate-900 */
+	--ui-color-muted: oklch(0.554 0.022 257);          /* ~slate-500 */
+
+	/* Primary accent */
+	--ui-color-primary: oklch(0.685 0.169 237);        /* ~sky-500 */
+	--ui-color-primary-hover: oklch(0.609 0.175 241);  /* ~sky-600 */
+	--ui-color-on-primary: oklch(1 0 0);               /* white */
+
+	/* Semantic */
+	--ui-color-error: oklch(0.645 0.246 16);           /* ~rose-500 */
+	--ui-color-error-hover: oklch(0.586 0.237 17);     /* ~rose-600 */
+	--ui-color-warning: oklch(0.769 0.188 70);         /* ~amber-500 */
+	--ui-color-success: oklch(0.596 0.145 163);        /* ~emerald-600 */
+
+	/* Borders & dividers */
+	--ui-color-border: oklch(0.869 0.013 252);         /* ~slate-200 */
+	--ui-color-ring: oklch(0.828 0.079 230);           /* ~sky-200 */
+
+	/* Shadows */
+	--ui-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+	--ui-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
+	--ui-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
+
+	/* Radii */
+	--ui-radius-sm: 0.375rem;
+	--ui-radius-md: 0.5rem;
+	--ui-radius-lg: 0.75rem;
+	--ui-radius-xl: 1rem;
+}
+
+/* ─── Dark theme ─── */
+
+.dark {
+	--ui-color-surface: oklch(0.129 0.042 264);        /* ~slate-950 */
+	--ui-color-surface-alt: oklch(0.208 0.042 265);    /* ~slate-900 */
+	--ui-color-surface-raised: oklch(0.279 0.041 260); /* ~slate-800 */
+
+	--ui-color-on-surface: oklch(0.929 0.006 247);     /* ~slate-100 */
+	--ui-color-muted: oklch(0.704 0.015 252);          /* ~slate-400 */
+
+	--ui-color-primary: oklch(0.746 0.152 232);        /* ~sky-400 */
+	--ui-color-primary-hover: oklch(0.685 0.169 237);  /* ~sky-500 */
+	--ui-color-on-primary: oklch(1 0 0);               /* white */
+
+	--ui-color-error: oklch(0.712 0.194 13);           /* ~rose-400 */
+	--ui-color-error-hover: oklch(0.645 0.246 16);     /* ~rose-500 */
+	--ui-color-warning: oklch(0.769 0.188 70);         /* ~amber-500 */
+	--ui-color-success: oklch(0.765 0.177 163);        /* ~emerald-400 */
+
+	--ui-color-border: oklch(0.372 0.034 259);         /* ~slate-700 */
+	--ui-color-ring: oklch(0.609 0.175 241);           /* ~sky-600 */
+
+	--ui-shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.2);
+	--ui-shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.3), 0 2px 4px -2px oklch(0 0 0 / 0.2);
+	--ui-shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.3), 0 4px 6px -4px oklch(0 0 0 / 0.2);
+}
+
+/* ─── Tailwind v4 theme registration ─── */
+
+@theme {
+	/* Map semantic tokens to Tailwind utility classes */
+	--color-surface: var(--ui-color-surface);
+	--color-surface-alt: var(--ui-color-surface-alt);
+	--color-surface-raised: var(--ui-color-surface-raised);
+	--color-on-surface: var(--ui-color-on-surface);
+	--color-muted: var(--ui-color-muted);
+	--color-primary: var(--ui-color-primary);
+	--color-primary-hover: var(--ui-color-primary-hover);
+	--color-on-primary: var(--ui-color-on-primary);
+	--color-error: var(--ui-color-error);
+	--color-error-hover: var(--ui-color-error-hover);
+	--color-warning: var(--ui-color-warning);
+	--color-success: var(--ui-color-success);
+	--color-border: var(--ui-color-border);
+	--color-ring: var(--ui-color-ring);
+
+	--shadow-ui-sm: var(--ui-shadow-sm);
+	--shadow-ui-md: var(--ui-shadow-md);
+	--shadow-ui-lg: var(--ui-shadow-lg);
+
+	--radius-sm: var(--ui-radius-sm);
+	--radius-md: var(--ui-radius-md);
+	--radius-lg: var(--ui-radius-lg);
+	--radius-xl: var(--ui-radius-xl);
+}

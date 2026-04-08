@@ -1,0 +1,67 @@
+{
+	"name": "@emdzej/ui-kit",
+	"version": "0.1.0",
+	"description": "Shared Svelte UI toolkit with theming, headless primitives, and reusable components",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/emdzej/ui-kit.git",
+		"directory": "packages/ui"
+	},
+	"type": "module",
+	"scripts": {
+		"build": "svelte-kit sync && svelte-package -o dist",
+		"package": "svelte-kit sync && svelte-package -o dist",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
+		"./theme": {
+			"types": "./dist/theme/index.d.ts",
+			"svelte": "./dist/theme/index.js",
+			"default": "./dist/theme/index.js"
+		},
+		"./theme/tokens.css": "./dist/theme/tokens.css",
+		"./actions": {
+			"types": "./dist/actions/index.d.ts",
+			"svelte": "./dist/actions/index.js",
+			"default": "./dist/actions/index.js"
+		},
+		"./stores": {
+			"types": "./dist/stores/index.d.ts",
+			"svelte": "./dist/stores/index.js",
+			"default": "./dist/stores/index.js"
+		}
+	},
+	"peerDependencies": {
+		"svelte": "^5.0.0"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^6.0.0",
+		"@sveltejs/kit": "^2.50.0",
+		"@sveltejs/package": "^2.3.0",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"svelte": "^5.51.0",
+		"svelte-check": "^4.0.0",
+		"typescript": "^5.7.0",
+		"vite": "^6.0.0"
+	},
+	"dependencies": {
+		"bits-ui": "^1.0.0",
+		"esm-env": "^1.2.0"
+	}
+}

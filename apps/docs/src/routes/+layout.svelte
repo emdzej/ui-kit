@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import { createTheme } from '@emdzej/ui-kit';
 	import { page } from '$app/state';
@@ -24,7 +24,7 @@
 		{ label: 'imageMagnify', href: '/actions/image-magnify' }
 	];
 
-	const isActive = (href) => page.url?.pathname === href;
+	const isActive = (href: string) => page.url?.pathname === href;
 </script>
 
 <div class="flex min-h-screen bg-surface text-on-surface">
@@ -44,10 +44,10 @@
 				{:else}
 					<a
 						href={item.href}
-						class="block rounded-md px-3 py-1.5 text-sm transition-colors
-							{isActive(item.href)
-								? 'bg-primary/10 text-primary font-medium'
-								: 'text-on-surface hover:bg-surface-raised'}"
+					class="block rounded-md px-3 py-1.5 text-sm transition-colors
+						{isActive(item.href ?? '')
+							? 'bg-primary/10 text-primary font-medium'
+							: 'text-on-surface hover:bg-surface-raised'}"
 					>
 						{item.label}
 					</a>

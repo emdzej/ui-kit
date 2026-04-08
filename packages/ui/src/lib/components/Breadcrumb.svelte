@@ -23,18 +23,20 @@
 	interface Props {
 		/** Ordered breadcrumb items, last item is the current page */
 		crumbs: BreadcrumbItem[];
+		/** Separator character between items */
+		separator?: string;
 		/** Additional CSS classes */
 		class?: string;
 	}
 
-	let { crumbs, class: className = '' }: Props = $props();
+	let { crumbs, separator = '/', class: className = '' }: Props = $props();
 </script>
 
 <nav aria-label="Breadcrumb" class="text-sm {className}">
 	<ol class="flex items-center gap-1.5 text-muted">
 		{#each crumbs as crumb, i (i)}
 			{#if i > 0}
-				<li aria-hidden="true" class="select-none">/</li>
+				<li aria-hidden="true" class="select-none">{separator}</li>
 			{/if}
 			<li>
 				{#if crumb.href && i < crumbs.length - 1}
